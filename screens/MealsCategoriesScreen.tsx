@@ -1,10 +1,10 @@
 import React from "react";
-import { CATEGORIES } from "../data/dummy-data";
 import { FlatList, ListRenderItemInfo } from "react-native";
-import { CategoryType } from "../models/category";
-import CategoryGridTile from "../components/CategoryGridTile";
 import { useNavigation } from "@react-navigation/native";
-import { HomeMealsScreenNavigationProp } from "../routes/HomeNavigator.types";
+import { CategoryType } from "models/category";
+import CategoryGridTile from "components/CategoryGridTile";
+import { HomeMealsScreenNavigationProp } from "routes/HomeNavigator.types";
+import { CATEGORIES } from "data/dummy-data";
 
 const MealsCategoriesScreen = () => {
   const { navigate } = useNavigation<HomeMealsScreenNavigationProp>();

@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import MealsCategoriesScreen from "../screens/MealsCategoriesScreen";
-import MealsScreen from "../screens/MealsScreen";
+import MealsCategoriesScreen from "screens/MealsCategoriesScreen";
+import MealsScreen from "screens/MealsScreen";
 
 export type HomeStackNavigatorParamList = {
   MealsCategoriesScreen: undefined;

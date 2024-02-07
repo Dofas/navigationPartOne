@@ -2,9 +2,9 @@ import React from "react";
 import { MEALS } from "../data/dummy-data";
 import { FlatList, ListRenderItemInfo, StyleSheet, View } from "react-native";
 import { useRoute } from "@react-navigation/native";
-import { HomeMealsScreenRouteProp } from "../routes/HomeNavigator.types";
-import { MealType } from "../models/meal";
-import MealItem from "../components/MealItem";
+import { HomeMealsScreenRouteProp } from "routes/HomeNavigator.types";
+import { MealType } from "models/meal";
+import MealItem from "components/MealItem";
 
 const MealsScreen = () => {
   const route = useRoute<HomeMealsScreenRouteProp>();

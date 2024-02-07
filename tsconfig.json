@@ -13,11 +13,16 @@
     "strict": true,
 //
 //    "moduleResolution": "node",
-//    "baseUrl": "./src",
+    "baseUrl": ".",
 //    "resolveJsonModule": true,
-//    "paths": {
-//      "~/*": ["*"]
-//    },
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@screens/*": ["src/screens/*"],
+      "@routes/*": ["src/routes/*"],
+      "@models/*": ["src/models/*"],
+      "@data/*": ["src/data/*"],
+      "@assets/*": ["src/assets/*"]
+    },
 //    "allowSyntheticDefaultImports": true,
 //    "esModuleInterop": true
   }
