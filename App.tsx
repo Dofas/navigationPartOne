@@ -1,11 +1,11 @@
-import CategoriesScreen from "./screens/CategoriesScreen";
 import { StatusBar } from "expo-status-bar";
+import RootNavigator from "./routes/RootNavigator";
 
 export default function App() {
   return (
     <>
-      <StatusBar style="light" />
-      <CategoriesScreen />
+      <StatusBar style="dark" />
+      <RootNavigator />
     </>
   );
 }
