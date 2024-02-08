@@ -1,21 +1,44 @@
-import React from "react";
-import { MEALS } from "../data/dummy-data";
-import { FlatList, ListRenderItemInfo, StyleSheet, View } from "react-native";
-import { useRoute } from "@react-navigation/native";
-import { HomeMealsScreenRouteProp } from "routes/HomeNavigator.types";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import MealItem from "components/Meals/MealItem";
+import { CATEGORIES, MEALS } from "data/dummy-data";
 import { MealType } from "models/meal";
-import MealItem from "components/MealItem";
+import React, { useLayoutEffect } from "react";
+import { FlatList, ListRenderItemInfo, StyleSheet, View } from "react-native";
+import {
+  HomeMealsScreenNavigationProp,
+  HomeMealsScreenRouteProp
+} from "routes/HomeNavigator/HomeNavigator.types";
 
 const MealsScreen = () => {
   const route = useRoute<HomeMealsScreenRouteProp>();
+  const navigation = useNavigation<HomeMealsScreenNavigationProp>();
   const { categoryId } = route.params;
+
+  useLayoutEffect(() => {
+    const categoryTitle = CATEGORIES.find(
+      (category) => category.id === categoryId
+    )?.title;
+
+    navigation.setOptions({
+      // headerBackTitleVisible: false,
+      title: categoryTitle
+    });
+  }, [navigation, categoryId]);
 
   const displayedMeals = MEALS.filter(
     (mealItem) => mealItem.categoryIds.indexOf(categoryId) > -1
   );
 
   function renderMealItem({ item }: ListRenderItemInfo<MealType>) {
-    return <MealItem title={item.title} />;
+    const mealItemProps = {
+      id: item.id,
+      title: item.title,
+      imageUrl: item.imageUrl,
+      duration: item.duration,
+      affordability: item.affordability,
+      complexity: item.complexity
+    };
+    return <MealItem {...mealItemProps} />;
   }
 
   return (
