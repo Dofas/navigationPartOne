@@ -4,7 +4,7 @@ import { CATEGORIES } from "data/dummy-data";
 import { CategoryType } from "models/category";
 import React from "react";
 import { FlatList, ListRenderItemInfo } from "react-native";
-import { HomeMealsScreenNavigationProp } from "routes/HomeNavigator/HomeNavigator.types";
+import { HomeMealsScreenNavigationProp } from "routes/HomeStackNavigator/HomeStackNavigator.types";
 
 const MealsCategoriesScreen = () => {
   const { navigate } = useNavigation<HomeMealsScreenNavigationProp>();

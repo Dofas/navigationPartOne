@@ -9,7 +9,7 @@ import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import {
   HomeMealDetailScreenNavigationProp,
   HomeMealDetailScreenRouteProp
-} from "routes/HomeNavigator/HomeNavigator.types";
+} from "routes/HomeStackNavigator/HomeStackNavigator.types";
 
 const MealDetailScreen = () => {
   const route = useRoute<HomeMealDetailScreenRouteProp>();

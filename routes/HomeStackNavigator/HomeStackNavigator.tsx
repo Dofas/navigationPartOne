@@ -1,13 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { HomeStackNavigatorParamList } from "routes/HomeNavigator/HomeNavigator.types";
+import DrawerNavigator from "routes/DrawerNavigator/DrawerNavigator";
+import { HomeStackNavigatorParamList } from "routes/HomeStackNavigator/HomeStackNavigator.types";
 import MealDetailScreen from "screens/MealDetailScreen";
-import MealsCategoriesScreen from "screens/MealsCategoriesScreen";
 import MealsScreen from "screens/MealsScreen";
 
 const HomeStack = createNativeStackNavigator<HomeStackNavigatorParamList>();
 
-const HomeNavigator = () => {
+const HomeStackNavigator = () => {
   return (
     <HomeStack.Navigator
       screenOptions={{
@@ -17,11 +17,12 @@ const HomeNavigator = () => {
       }}
     >
       <HomeStack.Screen
-        name="MealsCategoriesScreen"
+        name="Drawer"
+        component={DrawerNavigator}
         options={{
-          title: "All categories"
+          headerShown: false,
+          headerTitle: "All categories"
         }}
-        component={MealsCategoriesScreen}
       />
       <HomeStack.Screen
         name="MealsScreen"
@@ -47,4 +48,4 @@ const HomeNavigator = () => {
   );
 };
 
-export default HomeNavigator;
+export default HomeStackNavigator;

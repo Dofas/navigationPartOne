@@ -9,7 +9,7 @@ import {
   Text,
   View
 } from "react-native";
-import { HomeMealDetailScreenNavigationProp } from "routes/HomeNavigator/HomeNavigator.types";
+import { HomeMealDetailScreenNavigationProp } from "routes/HomeStackNavigator/HomeStackNavigator.types";
 
 type MealItemProps = {
   id: string;

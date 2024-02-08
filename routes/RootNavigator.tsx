@@ -1,11 +1,15 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import HomeNavigator from "routes/HomeNavigator/HomeNavigator";
+import HomeStackNavigator from "routes/HomeStackNavigator/HomeStackNavigator";
+import HomeBottomTabsNavigator from "routes/test/HomeBottomTabsNavigator/HomeBottomTabsNavigator";
+import HomeDrawerNavigator from "routes/test/HomeDrawerNavigator/HomeDrawerNavigator";
 
 const RootNavigator = () => {
   return (
     <NavigationContainer>
-      <HomeNavigator />
+      <HomeStackNavigator />
+      {/* <HomeDrawerNavigator />*/}
+      {/* <HomeBottomTabsNavigator />*/}
     </NavigationContainer>
   );
 };

@@ -7,7 +7,7 @@ import { FlatList, ListRenderItemInfo, StyleSheet, View } from "react-native";
 import {
   HomeMealsScreenNavigationProp,
   HomeMealsScreenRouteProp
-} from "routes/HomeNavigator/HomeNavigator.types";
+} from "routes/HomeStackNavigator/HomeStackNavigator.types";
 
 const MealsScreen = () => {
   const route = useRoute<HomeMealsScreenRouteProp>();

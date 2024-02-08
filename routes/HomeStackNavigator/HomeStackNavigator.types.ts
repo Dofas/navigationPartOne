@@ -2,10 +2,10 @@ import { RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 export type HomeStackNavigatorParamList = {
-  MealsCategoriesScreen: undefined;
   MealsScreen: {
     categoryId: string;
   };
+  Drawer: undefined;
   MealDetailScreen: {
     mealId: string;
   };
@@ -13,12 +13,12 @@ export type HomeStackNavigatorParamList = {
 
 export type HomeMealsScreenNavigationProp = NativeStackNavigationProp<
   HomeStackNavigatorParamList,
-  "MealsScreen"
+  "Drawer"
 >;
 
 export type HomeMealsScreenRouteProp = RouteProp<
   HomeStackNavigatorParamList,
-  "MealsScreen"
+  "Drawer"
 >;
 
 export type HomeMealDetailScreenNavigationProp = NativeStackNavigationProp<
