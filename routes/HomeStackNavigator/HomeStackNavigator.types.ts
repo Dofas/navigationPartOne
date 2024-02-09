@@ -13,12 +13,12 @@ export type HomeStackNavigatorParamList = {
 
 export type HomeMealsScreenNavigationProp = NativeStackNavigationProp<
   HomeStackNavigatorParamList,
-  "Drawer"
+  "MealsScreen"
 >;
 
 export type HomeMealsScreenRouteProp = RouteProp<
   HomeStackNavigatorParamList,
-  "Drawer"
+  "MealsScreen"
 >;
 
 export type HomeMealDetailScreenNavigationProp = NativeStackNavigationProp<

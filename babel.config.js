@@ -14,7 +14,8 @@ module.exports = function (api) {
             "@routes/*": "src/routes/*",
             "@models/*": "src/models/*",
             "@data/*": "src/data/*",
-            "@assets/*": "src/assets/*"
+            "@assets/*": "src/assets/*",
+            "@store/*": ["src/store/*"]
           }
         }
       ]

@@ -10,31 +10,58 @@ import {
   HomeMealDetailScreenNavigationProp,
   HomeMealDetailScreenRouteProp
 } from "routes/HomeStackNavigator/HomeStackNavigator.types";
+import { useFavouriteContext } from "store/context/favourite-context";
+import { addFavourite, removeFavourite } from "store/redux/favourite";
+import { useAppDispatch, useAppSelector } from "store/redux/hooks";
 
 const MealDetailScreen = () => {
+  // const { favouriteIds, addFavourite, removeFavourite } = useFavouriteContext();
   const route = useRoute<HomeMealDetailScreenRouteProp>();
   const navigation = useNavigation<HomeMealDetailScreenNavigationProp>();
   const { mealId } = route.params;
+  const { favouriteIds } = useAppSelector((state) => state.favoriteMeals);
 
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+  const dispatch = useAppDispatch();
 
-  function headerButtonPressHandler() {
-    console.log("pressed");
-  }
+  const isMealFavourite = selectedMeal?.id
+    ? favouriteIds.includes(selectedMeal.id)
+    : false;
 
   useLayoutEffect(() => {
+    function changeFavouriteStatusHandler() {
+      if (!selectedMeal?.id) {
+        return;
+      }
+
+      if (isMealFavourite) {
+        // removeFavourite(selectedMeal.id);
+        dispatch(removeFavourite({ id: selectedMeal.id }));
+      } else {
+        dispatch(addFavourite({ id: selectedMeal.id }));
+        // addFavourite(selectedMeal.id);
+      }
+    }
+
     navigation.setOptions({
       headerRight: () => {
         return (
           <IconButton
-            icon="star"
-            onPress={headerButtonPressHandler}
+            icon={isMealFavourite ? "star" : "star-outline"}
+            onPress={changeFavouriteStatusHandler}
             color="white"
           />
         );
       }
     });
-  }, [navigation]);
+  }, [
+    navigation,
+    selectedMeal?.id,
+    isMealFavourite,
+    // removeFavourite,
+    // addFavourite,
+    dispatch
+  ]);
 
   if (!selectedMeal) {
     return <Text>Sorry we didnt have information about this meal</Text>;
